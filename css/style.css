@@ -1,0 +1,9 @@
+.pointer {
+    cursor: pointer;
+}
+
+.disabledLink {
+    pointer-events: none;
+    text-decoration: none;
+    opacity: 0.5;
+}

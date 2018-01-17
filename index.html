@@ -10,6 +10,9 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Basic CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -43,10 +46,13 @@
     <div class="container">
         <div class="row">
           <div class="col s12 m12 l12">
+            <div id="messageView"></div>
+            <!-- wrap inside messagecomponent 
             <div class="card-panel blue lighten-2">
-              <span class="white-text"><i class="material-icons valign-wrapper right">close</i>Calculation included with success.
+              <span class="white-text"><i class="material-icons valign-wrapper right pointer hidden">close</i>Calculation included with success.
               </span>
             </div>
+             end wrap -->
           </div>
         </div>
         <div class="row" style="margin-top: 20px;">
@@ -78,6 +84,9 @@
     <script src="js/calculation/CalculationList.js"></script>
     <script src="js/calculation/CalculationView.js"></script>
     <script src="js/calculation/CalculationComponent.js"></script>
+    <script src="js/message/Message.js"></script>
+    <script src="js/message/MessageView.js"></script>
+    <script src="js/message/MessageComponent.js"></script>
     
     <script>
         let calculationComponent = new CalculationComponent();

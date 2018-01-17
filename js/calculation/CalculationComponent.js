@@ -15,9 +15,13 @@ class CalculationComponent {
 
         this._hourlyWageInput.value = calculation.hourlyWage;
         this._workedHoursInput.value = calculation.workedHours;
+
+        this._message = new MessageComponent($("#messageView"));
     }
 
-    onCalculateButtonClick() {
+    onCalculateButtonClick() {        
         this.calculationList.add(new Calculation(this._hourlyWageInput.value, this._workedHoursInput.value));
+        this._message.text = "Calculation included with success.";
+        console.log(this._message);
     }
 }
