@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Self-Employed Calculation</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue lighten-2">
+            <a href="#!" style='padding-left: 10px;' class="brand-logo"><i class="large material-icons">exposure</i></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.html">Calculation</a></li>
+              <!-- <li><a href="">Components</a></li>
+              <li><a href="">Javascript</a></li>
+              <li><a href="">Mobile</a></li> -->
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href="sass.html">Sass</a></li>
+              <li><a href="badges.html">Components</a></li>
+              <li><a href="collapsible.html">Javascript</a></li>
+              <li><a href="mobile.html">Mobile</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content goes inside the container -->
+    <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="card-panel blue lighten-2">
+              <span class="white-text"><i class="material-icons valign-wrapper right">close</i>Calculation included with success.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="input-field col s4">
+                <input placeholder="Your hourly wage, like $20." id="hourlyWage" type="number" min="0" step="0.05" class="validate">
+                <label for="hourlyWage">Hourly Wage</label>
+            </div>
+            <div class="input-field col s4">
+                <input placeholder="Number of hours you worked" id="workedHours" min="0" step="0.50" type="number" class="validate">
+                <label for="workedHours">Hours Worked</label>
+            </div>
+            <div class="col s4">
+                <input type="button" id="calculateButton" class="btn waves-effect waves-light blue lighten-2" name="action" value="Calculate" onclick="calculationComponent.onCalculateButtonClick();"
+                />
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <div id="calculationView"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/helpers/Validators.js"></script>
+    <script src="js/services/ProxyFactory.js"></script>
+    <script src="js/helpers/Bind.js"></script>
+    <script src="js/View.js"></script>
+    <script src="js/calculation/Calculation.js"></script>
+    <script src="js/calculation/CalculationList.js"></script>
+    <script src="js/calculation/CalculationView.js"></script>
+    <script src="js/calculation/CalculationComponent.js"></script>
+    
+    <script>
+        let calculationComponent = new CalculationComponent();
+    </script>
+</body>
+
+</html>
