@@ -29,10 +29,11 @@ class ProxyFactory {
 
             // We also might intercept a set
             set: function (target, prop, value, receiver) {
-                if (props.includes(prop)) {
-                    // Set the value into the intercepted property
-                    target[prop] = value;
+                // Set the value into the property
+                target[prop] = value;
 
+                // Check if the property is a property that we want to intercept
+                if (props.includes(prop)) {
                     // Execute our trap. Our trap will be the view update, so need to pass
                     // a model as a parameter and our model will be the target itself.
                     action(target);

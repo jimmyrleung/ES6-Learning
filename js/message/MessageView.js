@@ -4,11 +4,9 @@ class MessageView extends View {
     }
 
     template(model) {
-        console.log(model.text);
         return (model.text) ?
-            `<div class="card-panel blue lighten-2">
+            `<div id="messageViewContent" class="card-panel ${model.stateClass}">
                 <span class="white-text">
-                    <i class="material-icons valign-wrapper right pointer">close</i>
                     ${model.text}
                 </span>
         </div>` : "";
