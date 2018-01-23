@@ -10,12 +10,26 @@ class CalculationView extends View {
         <table class="highlight">
             <thead>
                 <tr>
-                    <th>Hourly Wage</th>
-                    <th>Hours worked</th>
-                    <th>Total</th>
+                    <th class="pointer" onclick="calculationComponent.sort('hourlyWage');">
+                        <i class="tiny material-icons pointer" onclick="calculationComponent.hideMessage();">
+                            filter_list
+                        </i>
+                        Hourly Wage
+                    </th>
+                    <th class="pointer" onclick="calculationComponent.sort('workedHours');">
+                        <i class="tiny material-icons pointer" onclick="calculationComponent.hideMessage();">
+                            filter_list
+                        </i>
+                        Worked Hours
+                    </th>
+                    <th class="pointer" onclick="calculationComponent.sort('calculate');">
+                        <i class="tiny material-icons pointer" onclick="calculationComponent.hideMessage();">
+                            filter_list
+                        </i>
+                        Total
+                    </th>
                 </tr>
             </thead>
-        
             <tbody>
                 ${model.calculations.map(c => `
                     <tr>

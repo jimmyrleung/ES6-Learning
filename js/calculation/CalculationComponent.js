@@ -12,7 +12,7 @@ class CalculationComponent {
         this.calculationList = new Bind(
             new CalculationView($("#calculationView")),
             new CalculationList(),
-            'add', 'calculations'
+            'add', 'calculations', 'sort', 'sortDescending'
         );
 
         this._hourlyWageInput.value = calculation.hourlyWage;
@@ -57,5 +57,14 @@ class CalculationComponent {
                     constants.TEMP_MESSAGE_STATE_ERROR);
                 console.log(err);
             });
+    };
+
+    sort(column) {
+        if (this.calculationList.isSortedAsc && this.calculationList.currentSortingColumn === column) {
+            this.calculationList.sortDescending();
+        }
+        else {
+            this.calculationList.sort(column);
+        }
     };
 }
