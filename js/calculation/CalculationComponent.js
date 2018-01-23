@@ -20,16 +20,31 @@ class CalculationComponent {
 
         this._message = new MessageComponent($("#messageView"));
         this.fetchCalculations();
-    }
+    };
+
+    // TODO: this component shouldn't be concerned about how the 
+    // message is shown or hidden
+    showMessage(text, state) {
+        this._message.show(text, state);
+    };
+
+    hideMessage() {
+        this._message.hide();
+    };
 
     onCalculateButtonClick() {
         this._httpService.request(constants.CALCULATIONS_URL, 'POST', new Calculation(this._hourlyWageInput.value, this._workedHoursInput.value))
             .then(() => {
-                Temp.message(this._message, "Calculation included with success.", "success", 3000);
+                this.showMessage(constants.CALCULATION_CREATION_SUCCESS,
+                    constants.TEMP_MESSAGE_STATE_SUCCESS);
                 return this.fetchCalculations();
             })
-            .catch((err) => console.log(err));
-    }
+            .catch((err) => {
+                this.showMessage(constants.CALCULATION_CREATION_ERROR,
+                    constants.TEMP_MESSAGE_STATE_ERROR);
+                console.log(err);
+            });
+    };
 
     fetchCalculations() {
         this._httpService.request(constants.CALCULATIONS_URL, 'GET')
@@ -37,6 +52,10 @@ class CalculationComponent {
                 this.calculationList.calculations =
                     calculations.map((c) => new Calculation(c._hourlyWage, c._workedHours));
             })
-            .catch((err) => console.log(err));
-    }
+            .catch((err) => {
+                this.showMessage(constants.FETCH_CALCULATIONS_ERROR,
+                    constants.TEMP_MESSAGE_STATE_ERROR);
+                console.log(err);
+            });
+    };
 }
