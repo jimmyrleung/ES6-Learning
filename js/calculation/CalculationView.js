@@ -5,7 +5,7 @@ class CalculationView extends View {
 
     sortingIcon(isSortedAsc) {
         let iconTemplateString = `<i class="tiny material-icons">{{icon}}</i>`;
-        return iconTemplateString.replace("{{icon}}", (isSortedAsc) ? "arrow_upward" : "arrow_downward");
+        return iconTemplateString.replace("{{icon}}", (isSortedAsc) ? "arrow_downward" : "arrow_upward");
     }
 
     template(model) {
